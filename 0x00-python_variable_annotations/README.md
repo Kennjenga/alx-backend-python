@@ -1,12 +1,24 @@
 # Type Annotations in Python 3
 
-![Python --- strongly dynamically typed](./strongly dynamically typed.png)
+![Python - strongly dynamically typed](./strongly_dynamically_typed.png)
 
 Type annotations in Python 3 allow you to specify the expected data types of function arguments and return values. This helps improve code readability and maintainability by making the code's intent clearer. Here's an example:
 
 ```python
-def greet(name: str) -> str:
-    return f"Hello, {name}!"
+#!/usr/bin/env python3
+from typing import Callable, Iterator, Union, Optional, List, Tuple
+
+
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
+    """
+    takes a float multiplier as argument,
+    returns a function that multiplies a float by multiplier.
+    """
+    def f(n: float) -> float:
+        """ multiplies a float by multiplier """
+        return float(n * multiplier)
+
+    return f
 ```
 
 In this example, `name` is expected to be a string, and the function returns a string.
@@ -26,6 +38,21 @@ is_student: bool = True
 Duck typing is a concept in Python where the type or class of an object is less important than the methods it defines. If an object implements the required methods, it can be used in place of another object. This is often summarized as "If it looks like a duck and quacks like a duck, it must be a duck."
 
 For example:
+
+```python
+#!/usr/bin/env python3
+""" Duck typing - first element of a sequence """
+from typing import Any, Union, Sequence, Iterable, List, Tuple
+
+
+# The types of the elements of the input are not know
+def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
+    """ Safe first element """
+    if lst:
+        return lst[0]
+    else:
+        return None
+```
 
 ```python
 class Duck:
