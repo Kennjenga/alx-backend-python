@@ -21,7 +21,7 @@ def make_multiplier(multiplier: float) -> Callable[[float], float]:
     return f
 ```
 
-In this example, `name` is expected to be a string, and the function returns a string.
+In this example, `make_multiplier` is like "an inner function" that multiplies a float by multiplier.
 
 ## Specifying Variable Types
 
