@@ -3,3 +3,5 @@ myenv/
 
 # all main.py files
 # *-main.py
+
+*__pycache__
